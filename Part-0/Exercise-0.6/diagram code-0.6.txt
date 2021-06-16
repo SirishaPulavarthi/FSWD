@@ -1,0 +1,27 @@
+title Web Sequence Diagram for new note using single page app
+
+note over browser:
+ User types a new note and clicks 
+ submit button in spa page
+end note
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+note right of server:
+ The POST request to the address 
+ new_note_spa contains new note 
+ as JSON-data
+end note
+server-->browser: HTTP status code 201
+note left of browser:
+ browser stays on same page and 
+ doesn't send further HTTP requests
+end note
+note left of server:
+ new note is fetched from the page 
+ and event handler is registered 
+ to handle form submit event
+end note
+note right of browser:
+ The event handler creates a new note
+ and adds it to notes list, it rerenders
+ the notes list on that page
+end note
